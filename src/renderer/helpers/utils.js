@@ -582,11 +582,7 @@ export async function getSystemLocale() {
 }
 
 export function extractNumberFromString(str) {
-  if (typeof str === 'string') {
-    return parseInt(str.replaceAll(/\D+/g, ''))
-  } else {
-    return NaN
-  }
+ return typeof str === 'string' ? parseInt(str.replaceAll(/\D/g, ''), 10) || 0 : NaN
 }
 
 export function showExternalPlayerUnsupportedActionToast(externalPlayer, action) {
